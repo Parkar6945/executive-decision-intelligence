@@ -1,0 +1,364 @@
+{
+  "metrics_definition": [
+    {
+      "dept": "Marketing",
+      "name": "Customer Acquisition Cost (CAC)",
+      "base_val": 420.0,
+      "unit": "$",
+      "financial_link": "Operating Expenses",
+      "impact_weight": -0.85
+    },
+    {
+      "dept": "Marketing",
+      "name": "Organic Traffic Share",
+      "base_val": 38.5,
+      "unit": "%",
+      "financial_link": "Net Margin Efficiency",
+      "impact_weight": 0.65
+    },
+    {
+      "dept": "Sales",
+      "name": "Average Deal Close Cycle",
+      "base_val": 48.0,
+      "unit": "days",
+      "financial_link": "Cashflow Velocity",
+      "impact_weight": -0.75
+    },
+    {
+      "dept": "Sales",
+      "name": "Pipeline Win Rate",
+      "base_val": 26.4,
+      "unit": "%",
+      "financial_link": "Gross Revenue",
+      "impact_weight": 0.92
+    },
+    {
+      "dept": "Engineering",
+      "name": "Sprint Velocity Realization",
+      "base_val": 84.0,
+      "unit": "%",
+      "financial_link": "Product R&D ROI",
+      "impact_weight": 0.6
+    },
+    {
+      "dept": "Engineering",
+      "name": "Critical Bug Escaped Defects",
+      "base_val": 14.0,
+      "unit": "bugs",
+      "financial_link": "Customer Churn Cost",
+      "impact_weight": -0.8
+    },
+    {
+      "dept": "Operations",
+      "name": "Order Fulfillment On-Time Rate",
+      "base_val": 91.2,
+      "unit": "%",
+      "financial_link": "Repeat Revenue",
+      "impact_weight": 0.88
+    },
+    {
+      "dept": "Operations",
+      "name": "Warehouse Storage Cost / Unit",
+      "base_val": 4.8,
+      "unit": "$",
+      "financial_link": "COGS",
+      "impact_weight": -0.7
+    },
+    {
+      "dept": "Customer Success",
+      "name": "Net Revenue Retention (NRR)",
+      "base_val": 108.5,
+      "unit": "%",
+      "financial_link": "LTV & EBITDA",
+      "impact_weight": 0.95
+    },
+    {
+      "dept": "Customer Success",
+      "name": "Support Ticket Resolution SLA",
+      "base_val": 94.0,
+      "unit": "%",
+      "financial_link": "CSAT & Renewal Rate",
+      "impact_weight": 0.72
+    }
+  ],
+  "monthly_data": [
+    {
+      "month": "Jan",
+      "revenue": 1235423.7,
+      "ebitda": 292398.3,
+      "metrics": {
+        "Customer Acquisition Cost (CAC)": 360.2,
+        "Organic Traffic Share": 35.9,
+        "Average Deal Close Cycle": 44.0,
+        "Pipeline Win Rate": 28.3,
+        "Sprint Velocity Realization": 88.5,
+        "Critical Bug Escaped Defects": 15.6,
+        "Order Fulfillment On-Time Rate": 79.9,
+        "Warehouse Storage Cost / Unit": 4.7,
+        "Net Revenue Retention (NRR)": 93.2,
+        "Support Ticket Resolution SLA": 86.1
+      }
+    },
+    {
+      "month": "Feb",
+      "revenue": 1236899.69,
+      "ebitda": 288714.89,
+      "metrics": {
+        "Customer Acquisition Cost (CAC)": 360.3,
+        "Organic Traffic Share": 35.0,
+        "Average Deal Close Cycle": 50.2,
+        "Pipeline Win Rate": 26.8,
+        "Sprint Velocity Realization": 77.0,
+        "Critical Bug Escaped Defects": 14.4,
+        "Order Fulfillment On-Time Rate": 99.7,
+        "Warehouse Storage Cost / Unit": 4.1,
+        "Net Revenue Retention (NRR)": 118.5,
+        "Support Ticket Resolution SLA": 99.6
+      }
+    },
+    {
+      "month": "Mar",
+      "revenue": 1233162.09,
+      "ebitda": 283206.73,
+      "metrics": {
+        "Customer Acquisition Cost (CAC)": 376.6,
+        "Organic Traffic Share": 43.8,
+        "Average Deal Close Cycle": 45.6,
+        "Pipeline Win Rate": 23.2,
+        "Sprint Velocity Realization": 73.8,
+        "Critical Bug Escaped Defects": 15.5,
+        "Order Fulfillment On-Time Rate": 94.0,
+        "Warehouse Storage Cost / Unit": 5.2,
+        "Net Revenue Retention (NRR)": 116.0,
+        "Support Ticket Resolution SLA": 95.0
+      }
+    },
+    {
+      "month": "Apr",
+      "revenue": 1363483.45,
+      "ebitda": 324619.21,
+      "metrics": {
+        "Customer Acquisition Cost (CAC)": 404.7,
+        "Organic Traffic Share": 39.1,
+        "Average Deal Close Cycle": 52.7,
+        "Pipeline Win Rate": 27.3,
+        "Sprint Velocity Realization": 93.1,
+        "Critical Bug Escaped Defects": 14.3,
+        "Order Fulfillment On-Time Rate": 96.8,
+        "Warehouse Storage Cost / Unit": 4.1,
+        "Net Revenue Retention (NRR)": 99.6,
+        "Support Ticket Resolution SLA": 88.1
+      }
+    },
+    {
+      "month": "May",
+      "revenue": 1237405.05,
+      "ebitda": 276291.77,
+      "metrics": {
+        "Customer Acquisition Cost (CAC)": 386.3,
+        "Organic Traffic Share": 33.9,
+        "Average Deal Close Cycle": 44.8,
+        "Pipeline Win Rate": 27.5,
+        "Sprint Velocity Realization": 80.6,
+        "Critical Bug Escaped Defects": 13.5,
+        "Order Fulfillment On-Time Rate": 83.3,
+        "Warehouse Storage Cost / Unit": 4.5,
+        "Net Revenue Retention (NRR)": 122.7,
+        "Support Ticket Resolution SLA": 98.2
+      }
+    },
+    {
+      "month": "Jun",
+      "revenue": 1350334.01,
+      "ebitda": 311616.9,
+      "metrics": {
+        "Customer Acquisition Cost (CAC)": 378.6,
+        "Organic Traffic Share": 41.1,
+        "Average Deal Close Cycle": 43.2,
+        "Pipeline Win Rate": 25.4,
+        "Sprint Velocity Realization": 96.3,
+        "Critical Bug Escaped Defects": 14.6,
+        "Order Fulfillment On-Time Rate": 92.8,
+        "Warehouse Storage Cost / Unit": 5.1,
+        "Net Revenue Retention (NRR)": 119.7,
+        "Support Ticket Resolution SLA": 101.8
+      }
+    },
+    {
+      "month": "Jul",
+      "revenue": 1310480.08,
+      "ebitda": 293468.03,
+      "metrics": {
+        "Customer Acquisition Cost (CAC)": 361.0,
+        "Organic Traffic Share": 36.4,
+        "Average Deal Close Cycle": 44.7,
+        "Pipeline Win Rate": 24.1,
+        "Sprint Velocity Realization": 95.2,
+        "Critical Bug Escaped Defects": 15.6,
+        "Order Fulfillment On-Time Rate": 86.1,
+        "Warehouse Storage Cost / Unit": 5.0,
+        "Net Revenue Retention (NRR)": 105.1,
+        "Support Ticket Resolution SLA": 105.7
+      }
+    },
+    {
+      "month": "Aug",
+      "revenue": 1373087.11,
+      "ebitda": 311180.49,
+      "metrics": {
+        "Customer Acquisition Cost (CAC)": 390.4,
+        "Organic Traffic Share": 35.6,
+        "Average Deal Close Cycle": 48.9,
+        "Pipeline Win Rate": 24.5,
+        "Sprint Velocity Realization": 86.1,
+        "Critical Bug Escaped Defects": 15.7,
+        "Order Fulfillment On-Time Rate": 88.4,
+        "Warehouse Storage Cost / Unit": 4.4,
+        "Net Revenue Retention (NRR)": 124.7,
+        "Support Ticket Resolution SLA": 94.3
+      }
+    },
+    {
+      "month": "Sep",
+      "revenue": 1335272.78,
+      "ebitda": 293745.47,
+      "metrics": {
+        "Customer Acquisition Cost (CAC)": 362.9,
+        "Organic Traffic Share": 34.0,
+        "Average Deal Close Cycle": 49.8,
+        "Pipeline Win Rate": 28.7,
+        "Sprint Velocity Realization": 82.0,
+        "Critical Bug Escaped Defects": 12.2,
+        "Order Fulfillment On-Time Rate": 88.0,
+        "Warehouse Storage Cost / Unit": 5.5,
+        "Net Revenue Retention (NRR)": 109.4,
+        "Support Ticket Resolution SLA": 107.3
+      }
+    },
+    {
+      "month": "Oct",
+      "revenue": 1488610.99,
+      "ebitda": 343213.85,
+      "metrics": {
+        "Customer Acquisition Cost (CAC)": 358.4,
+        "Organic Traffic Share": 41.0,
+        "Average Deal Close Cycle": 50.6,
+        "Pipeline Win Rate": 26.7,
+        "Sprint Velocity Realization": 78.1,
+        "Critical Bug Escaped Defects": 14.6,
+        "Order Fulfillment On-Time Rate": 80.6,
+        "Warehouse Storage Cost / Unit": 4.7,
+        "Net Revenue Retention (NRR)": 107.0,
+        "Support Ticket Resolution SLA": 106.8
+      }
+    },
+    {
+      "month": "Nov",
+      "revenue": 1515143.29,
+      "ebitda": 348300.15,
+      "metrics": {
+        "Customer Acquisition Cost (CAC)": 390.2,
+        "Organic Traffic Share": 38.5,
+        "Average Deal Close Cycle": 43.4,
+        "Pipeline Win Rate": 29.7,
+        "Sprint Velocity Realization": 93.3,
+        "Critical Bug Escaped Defects": 13.2,
+        "Order Fulfillment On-Time Rate": 95.0,
+        "Warehouse Storage Cost / Unit": 5.0,
+        "Net Revenue Retention (NRR)": 97.2,
+        "Support Ticket Resolution SLA": 101.4
+      }
+    },
+    {
+      "month": "Dec",
+      "revenue": 1482615.68,
+      "ebitda": 332715.49,
+      "metrics": {
+        "Customer Acquisition Cost (CAC)": 455.1,
+        "Organic Traffic Share": 38.9,
+        "Average Deal Close Cycle": 40.8,
+        "Pipeline Win Rate": 25.0,
+        "Sprint Velocity Realization": 71.9,
+        "Critical Bug Escaped Defects": 15.8,
+        "Order Fulfillment On-Time Rate": 101.6,
+        "Warehouse Storage Cost / Unit": 5.3,
+        "Net Revenue Retention (NRR)": 102.2,
+        "Support Ticket Resolution SLA": 81.5
+      }
+    }
+  ],
+  "financials": [
+    {
+      "month": "Jan",
+      "revenue": 1235423.7,
+      "ebitda": 292398.3,
+      "ebitda_margin_pct": 23.7
+    },
+    {
+      "month": "Feb",
+      "revenue": 1236899.69,
+      "ebitda": 288714.89,
+      "ebitda_margin_pct": 23.3
+    },
+    {
+      "month": "Mar",
+      "revenue": 1233162.09,
+      "ebitda": 283206.73,
+      "ebitda_margin_pct": 23.0
+    },
+    {
+      "month": "Apr",
+      "revenue": 1363483.45,
+      "ebitda": 324619.21,
+      "ebitda_margin_pct": 23.8
+    },
+    {
+      "month": "May",
+      "revenue": 1237405.05,
+      "ebitda": 276291.77,
+      "ebitda_margin_pct": 22.3
+    },
+    {
+      "month": "Jun",
+      "revenue": 1350334.01,
+      "ebitda": 311616.9,
+      "ebitda_margin_pct": 23.1
+    },
+    {
+      "month": "Jul",
+      "revenue": 1310480.08,
+      "ebitda": 293468.03,
+      "ebitda_margin_pct": 22.4
+    },
+    {
+      "month": "Aug",
+      "revenue": 1373087.11,
+      "ebitda": 311180.49,
+      "ebitda_margin_pct": 22.7
+    },
+    {
+      "month": "Sep",
+      "revenue": 1335272.78,
+      "ebitda": 293745.47,
+      "ebitda_margin_pct": 22.0
+    },
+    {
+      "month": "Oct",
+      "revenue": 1488610.99,
+      "ebitda": 343213.85,
+      "ebitda_margin_pct": 23.1
+    },
+    {
+      "month": "Nov",
+      "revenue": 1515143.29,
+      "ebitda": 348300.15,
+      "ebitda_margin_pct": 23.0
+    },
+    {
+      "month": "Dec",
+      "revenue": 1482615.68,
+      "ebitda": 332715.49,
+      "ebitda_margin_pct": 22.4
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Decision Intelligence Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-800 gap-4">
+            <div>
+                <div class="flex items-center space-x-2">
+                    <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Problem #12 • Business Analytics</span>
+                    <span class="text-xs text-slate-400">KPI Causal Inference</span>
+                </div>
+                <h1 class="text-2xl md:text-3xl font-bold text-white mt-1">Executive Decision Intelligence System</h1>
+                <p class="text-sm text-slate-400">Filters operational noise to reveal the departmental metrics that genuinely govern EBITDA & profit performance.</p>
+            </div>
+            <button onclick="recalculate()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition shadow-lg shadow-indigo-600/20 flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                Re-simulate Financials
+            </button>
+        </header>
+
+        <!-- KPI Metrics Ribbon -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+            <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                <div class="text-xs font-medium text-slate-400 uppercase tracking-wider">Latest Monthly Revenue</div>
+                <div id="metric-rev" class="text-2xl font-bold text-white mt-1">--</div>
+                <div class="text-xs text-slate-500 mt-0.5">Top-line billing</div>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                <div class="text-xs font-medium text-slate-400 uppercase tracking-wider">Monthly EBITDA</div>
+                <div id="metric-ebitda" class="text-2xl font-bold text-emerald-400 mt-1">--</div>
+                <div id="metric-margin" class="text-xs text-emerald-500 mt-0.5">-- % margin</div>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                <div class="text-xs font-medium text-slate-400 uppercase tracking-wider">Assessed Department KPIs</div>
+                <div id="metric-kpi-count" class="text-2xl font-bold text-indigo-400 mt-1">--</div>
+                <div class="text-xs text-indigo-500 mt-0.5">Operating variables</div>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                <div class="text-xs font-medium text-slate-400 uppercase tracking-wider">Decision Coupling</div>
+                <div class="text-2xl font-bold text-amber-400 mt-1">Empirical</div>
+                <div class="text-xs text-amber-500 mt-0.5">Pearson correlation engine</div>
+            </div>
+        </div>
+
+        <!-- AI Executive Briefing Callout -->
+        <div class="mt-6 bg-indigo-950/20 border border-indigo-500/30 p-5 rounded-xl">
+            <div class="flex items-center space-x-2 mb-2">
+                <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h3 class="font-bold text-indigo-300 text-sm uppercase tracking-wider">AI Executive Briefing</h3>
+            </div>
+            <p id="executiveBriefingText" class="text-slate-200 text-sm leading-relaxed">Loading executive insights...</p>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-semibold text-white">Revenue & EBITDA Trajectory (12 Months)</h3>
+                    <span class="text-xs text-slate-500">Financial Outcomes</span>
+                </div>
+                <div class="h-80">
+                    <canvas id="financialChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-semibold text-white">KPI Correlation with EBITDA (Sensitivity)</h3>
+                    <span class="text-xs text-slate-500">Degree of Bottom-line Influence</span>
+                </div>
+                <div class="h-80">
+                    <canvas id="correlationChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metric Causal Hierarchy Table -->
+        <div class="mt-8 bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-lg">
+            <div class="p-4 border-b border-slate-800 flex items-center justify-between">
+                <div>
+                    <h3 class="font-semibold text-white">Departmental KPI Causal Hierarchy</h3>
+                    <p class="text-xs text-slate-400">Separates true bottom-line levers from vanity metrics</p>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm text-slate-300">
+                    <thead class="bg-slate-950/50 text-xs uppercase text-slate-400 border-b border-slate-800">
+                        <tr>
+                            <th class="p-3.5">Metric Name</th>
+                            <th class="p-3.5">Department</th>
+                            <th class="p-3.5 text-right">Latest Value</th>
+                            <th class="p-3.5 text-right">MoM Delta</th>
+                            <th class="p-3.5">Financial Link</th>
+                            <th class="p-3.5 text-right">EBITDA Correlation</th>
+                            <th class="p-3.5">Strategic Classification</th>
+                        </tr>
+                    </thead>
+                    <tbody id="driverTableBody" class="divide-y divide-slate-800">
+                        <!-- Injected via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let finChart = null;
+        let corrChart = null;
+
+        async function fetchDecisionData() {
+            try {
+                const res = await fetch('/api/kpis');
+                const data = await res.json();
+                renderDashboard(data);
+            } catch (err) {
+                console.error("Failed to load decision data:", err);
+            }
+        }
+
+        async function recalculate() {
+            await fetch('/api/recalculate', { method: 'POST' });
+            await fetchDecisionData();
+        }
+
+        function renderDashboard(data) {
+            const fs = data.financial_summary;
+            document.getElementById('metric-rev').innerText = fs.latest_month_revenue;
+            document.getElementById('metric-ebitda').innerText = fs.latest_month_ebitda;
+            document.getElementById('metric-margin').innerText = `${fs.ebitda_margin} margin`;
+            document.getElementById('metric-kpi-count').innerText = fs.monitored_kpis_count;
+            document.getElementById('executiveBriefingText').innerText = data.executive_briefing;
+
+            // Render Table
+            const tbody = document.getElementById('driverTableBody');
+            tbody.innerHTML = '';
+            data.drivers.forEach(d => {
+                const badge = d.impact_tier.includes('PRIMARY') 
+                    ? '<span class="px-2 py-0.5 rounded text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold">PRIMARY DRIVER</span>'
+                    : d.impact_tier.includes('SECONDARY') 
+                    ? '<span class="px-2 py-0.5 rounded text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">CONTRIBUTOR</span>'
+                    : '<span class="px-2 py-0.5 rounded text-xs bg-slate-800 text-slate-400">NOISE / LOW LEVERAGE</span>';
+
+                tbody.innerHTML += `
+                    <tr class="hover:bg-slate-800/40 transition">
+                        <td class="p-3.5 font-medium text-white">${d.metric}</td>
+                        <td class="p-3.5 text-slate-300 text-xs">${d.department}</td>
+                        <td class="p-3.5 text-right font-mono text-white">${d.latest_value} ${d.unit}</td>
+                        <td class="p-3.5 text-right font-mono ${d.mom_change_pct >= 0 ? 'text-emerald-400' : 'text-rose-400'}">${d.mom_change_pct > 0 ? '+' : ''}${d.mom_change_pct}%</td>
+                        <td class="p-3.5 text-xs text-slate-400">${d.financial_link}</td>
+                        <td class="p-3.5 text-right font-mono font-bold ${Math.abs(d.correlation_with_ebitda) > 0.6 ? 'text-indigo-400' : 'text-slate-400'}">${d.correlation_with_ebitda}</td>
+                        <td class="p-3.5">${badge}</td>
+                    </tr>
+                `;
+            });
+
+            // Render Charts
+            renderCharts(data.financial_trend, data.drivers);
+        }
+
+        function renderCharts(trend, drivers) {
+            const ctx1 = document.getElementById('financialChart').getContext('2d');
+            if (finChart) finChart.destroy();
+            finChart = new Chart(ctx1, {
+                type: 'line',
+                data: {
+                    labels: trend.map(t => t.month),
+                    datasets: [
+                        { label: 'Revenue ($)', data: trend.map(t => t.revenue), borderColor: '#818cf8', backgroundColor: 'rgba(129, 140, 248, 0.1)', fill: true, tension: 0.3 },
+                        { label: 'EBITDA ($)', data: trend.map(t => t.ebitda), borderColor: '#10b981', backgroundColor: 'transparent', borderDash: [4, 4], tension: 0.3 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' } },
+                        y: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' } }
+                    },
+                    plugins: { legend: { labels: { color: '#cbd5e1' } } }
+                }
+            });
+
+            const ctx2 = document.getElementById('correlationChart').getContext('2d');
+            if (corrChart) corrChart.destroy();
+            corrChart = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: drivers.map(d => d.metric.substring(0, 16) + '...'),
+                    datasets: [{
+                        label: 'Pearson Correlation with EBITDA',
+                        data: drivers.map(d => d.correlation_with_ebitda),
+                        backgroundColor: drivers.map(d => d.correlation_with_ebitda >= 0 ? '#10b981' : '#f43f5e'),
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' }, min: -1.0, max: 1.0 },
+                        y: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' } }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        fetchDecisionData();
+    </script>
+</body>
+</html>
